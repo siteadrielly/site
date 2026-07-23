@@ -550,80 +550,6 @@
   .final-cta p{ color:rgba(242,236,225,0.72); margin-top:1.2rem; max-width:46ch; margin-left:auto; margin-right:auto; font-weight:300; }
   .final-cta .hero-ctas{ justify-content:center; margin-top:2.3rem; }
 
-  /* ---------- LEAD FORM ---------- */
-  .lead-form{
-    max-width:520px;
-    margin:2.8rem auto 0;
-    text-align:left;
-  }
-  .lead-form .field{ margin-bottom:1.5rem; }
-  .lead-form label{
-    display:block;
-    font-size:0.68rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin-bottom:0.6rem;
-  }
-  .lead-form input,
-  .lead-form select,
-  .lead-form textarea{
-    width:100%;
-    background:transparent;
-    border:none;
-    border-bottom:1px solid var(--line-dark);
-    color:var(--ivory);
-    font-family:'Jost', sans-serif;
-    font-size:0.98rem;
-    font-weight:300;
-    padding:0.6rem 0.1rem;
-    transition:border-color 0.25s ease;
-  }
-  .lead-form select{
-    appearance:none;
-    -webkit-appearance:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23BE9A5C'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;
-    background-position:right 0.3rem center;
-  }
-  .lead-form select option{ background:var(--black); color:var(--ivory); }
-  .lead-form textarea{ resize:vertical; min-height:80px; font-family:'Jost',sans-serif; }
-  .lead-form input:focus,
-  .lead-form select:focus,
-  .lead-form textarea:focus{ border-color:var(--gold); outline:none; }
-  .lead-form input::placeholder,
-  .lead-form textarea::placeholder{ color:rgba(242,236,225,0.35); }
-  .lead-form .submit-row{ text-align:center; margin-top:0.6rem; }
-  .lead-form button{
-    display:inline-flex; align-items:center; gap:0.5rem;
-    padding:0.95rem 2.4rem;
-    font-size:0.74rem;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    background:var(--gold);
-    color:var(--black);
-    border:none;
-    cursor:pointer;
-    transition:background 0.25s ease;
-  }
-  .lead-form button:hover{ background:var(--gold-light); }
-  .lead-form button:disabled{ opacity:0.55; cursor:not-allowed; }
-  .form-status{
-    margin-top:1.1rem;
-    font-size:0.82rem;
-    text-align:center;
-    min-height:1.2em;
-  }
-  .form-status.success{ color:#B9CBA8; }
-  .form-status.error{ color:#D79A8C; }
-  .form-divider{
-    display:flex; align-items:center; gap:1rem;
-    max-width:520px; margin:2.6rem auto 0;
-    color:rgba(242,236,225,0.4);
-    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
-  }
-  .form-divider .line{ flex:1; height:1px; background:var(--line-dark); }
-
   /* ---------- FOOTER ---------- */
   footer{ background:var(--black); color:rgba(242,236,225,0.7); padding:3.6rem 0 2.2rem; border-top:1px solid var(--line-dark); }
   .footer-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:2.2rem; }
@@ -741,7 +667,7 @@
     <div class="section-head on-light reveal">
       <div class="eyebrow on-light">Estrutura</div>
       <h2>Um espaço pensado para o seu conforto</h2>
-      <p>Fotos do nosso consultório, à beira-mar da Praia do Bessa, em João Pessoa.</p>
+      <p>Nosso consultório à beira-mar da Praia do Bessa, em João Pessoa.</p>
     </div>
 
     <div class="clinic-gallery reveal">
@@ -840,37 +766,6 @@
       <a href="https://wa.me/5583986821511" class="btn-gold">Agendar pelo WhatsApp</a>
       <a href="https://instagram.com/draadrielyanute" class="btn-ghost">@draadrielyanute</a>
     </div>
-
-    <div class="form-divider"><span class="line"></span>ou deixe seus dados<span class="line"></span></div>
-
-    <form class="lead-form" id="leadForm">
-      <div class="field">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
-      </div>
-      <div class="field">
-        <label for="whatsapp">WhatsApp</label>
-        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(83) 90000-0000" required>
-      </div>
-      <div class="field">
-        <label for="procedimento">Procedimento de interesse</label>
-        <select id="procedimento" name="procedimento" required>
-          <option value="" disabled selected>Selecione uma opção</option>
-          <option value="Harmonização facial">Harmonização facial</option>
-          <option value="Implante dentário">Implante dentário</option>
-          <option value="Facetas">Facetas</option>
-          <option value="Ainda não sei">Ainda não sei — quero orientação</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="mensagem">Mensagem (opcional)</label>
-        <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco do que você gostaria de tratar"></textarea>
-      </div>
-      <div class="submit-row">
-        <button type="submit" id="leadSubmitBtn">Enviar e ser contatada</button>
-        <p class="form-status" id="leadFormStatus" role="status" aria-live="polite"></p>
-      </div>
-    </form>
   </div>
 </section>
 
@@ -930,71 +825,6 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
-</script>
-
-<!--
-  ======================================================================
-  CONFIGURAÇÃO DO SUPABASE — leia antes de publicar
-  ======================================================================
-  1. Crie a tabela "leads" no Supabase com as colunas:
-     id (uuid, default gen_random_uuid()), created_at (timestamptz, default now()),
-     nome (text), whatsapp (text), procedimento (text), mensagem (text), origem (text)
-  2. Ative Row Level Security e crie uma policy de INSERT liberada para "anon"
-     (sem policy de SELECT/UPDATE/DELETE pública).
-  3. Troque SUPABASE_URL e SUPABASE_ANON_KEY abaixo pelos valores reais
-     (Project Settings > API no painel do Supabase).
-  ======================================================================
--->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script>
-  const SUPABASE_URL = "https://vjypwqgijryybflmqamu.supabase.co";
-  const SUPABASE_ANON_KEY = "sb_publishable_ZHsIdjFwcGZRCaUubt6dew_31_TCueA";
-
-  const supabaseClient = (SUPABASE_URL.startsWith("http"))
-    ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    : null;
-
-  const leadForm = document.getElementById('leadForm');
-  const leadStatus = document.getElementById('leadFormStatus');
-  const leadBtn = document.getElementById('leadSubmitBtn');
-
-  leadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    if (!supabaseClient){
-      leadStatus.textContent = "Formulário ainda não configurado — defina a SUPABASE_URL e a ANON_KEY no código.";
-      leadStatus.className = "form-status error";
-      return;
-    }
-
-    const payload = {
-      nome: document.getElementById('nome').value.trim(),
-      whatsapp: document.getElementById('whatsapp').value.trim(),
-      procedimento: document.getElementById('procedimento').value,
-      mensagem: document.getElementById('mensagem').value.trim(),
-      origem: "site-adriely"
-    };
-
-    leadBtn.disabled = true;
-    leadBtn.textContent = "Enviando...";
-    leadStatus.textContent = "";
-    leadStatus.className = "form-status";
-
-    const { error } = await supabaseClient.from('leads').insert([payload]);
-
-    if (error){
-      leadStatus.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
-      leadStatus.className = "form-status error";
-      leadBtn.disabled = false;
-      leadBtn.textContent = "Enviar e ser contatada";
-    } else {
-      leadStatus.textContent = "Recebido! Em breve entramos em contato pelo WhatsApp.";
-      leadStatus.className = "form-status success";
-      leadForm.reset();
-      leadBtn.disabled = false;
-      leadBtn.textContent = "Enviar e ser contatada";
-    }
-  });
 </script>
 
 <script>
