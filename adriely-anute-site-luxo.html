@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Adriely Anute — Harmonização Facial &amp; Implantodontia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,500&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#141210;
+    --espresso:#221D17;
+    --ivory:#F2ECE1;
+    --ivory-deep:#E8DFCD;
+    --gold:#BE9A5C;
+    --gold-light:#E4CB9B;
+    --gold-dim:#8C7444;
+    --olive:#565A45;
+    --ink:#1B1712;
+    --ink-soft:#4A4437;
+    --line-dark: rgba(228,203,155,0.28);
+    --line-light: rgba(27,23,18,0.14);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3{
+    font-family:'Bodoni Moda', serif;
+    font-weight:500;
+    margin:0;
+  }
+
+  .script{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  img{ display:block; max-width:100%; }
+
+  :focus-visible{
+    outline:1px solid var(--gold);
+    outline-offset:4px;
+  }
+
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    font-size:0.7rem;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .eyebrow.on-light{ color:var(--gold-dim); }
+  .eyebrow.on-dark{ color:var(--gold); }
+
+  .wrap{
+    max-width:1220px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+
+  /* gold hairline ornament used as recurring signature */
+  .gold-rule{
+    width:52px;
+    height:1px;
+    background:var(--gold);
+    margin:1.3rem 0;
+  }
+  .gold-rule.center{ margin-left:auto; margin-right:auto; }
+
+  .frame{
+    position:relative;
+    padding:14px;
+  }
+  .frame::before,.frame::after{
+    content:"";
+    position:absolute;
+    width:26px; height:26px;
+    border:1px solid var(--gold);
+  }
+  .frame::before{ top:0; left:0; border-right:none; border-bottom:none; }
+  .frame::after{ bottom:0; right:0; border-left:none; border-top:none; }
+  .frame img{ width:100%; height:100%; object-fit:cover; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:60;
+    padding:1.3rem 0;
+    transition:background 0.35s ease, padding 0.35s ease;
+  }
+  header.scrolled{
+    background:rgba(20,18,16,0.92);
+    backdrop-filter:blur(8px);
+    padding:0.9rem 0;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6vw;
+  }
+  .logo{
+    font-family:'Bodoni Moda', serif;
+    font-size:1.05rem;
+    letter-spacing:0.14em;
+    color:var(--ivory);
+    text-transform:uppercase;
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:2.4rem;
+    font-size:0.76rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ivory);
+  }
+  .nav-links a{
+    position:relative;
+    padding-bottom:6px;
+    opacity:0.88;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0%;
+    height:1px;
+    background:var(--gold);
+    transition:width 0.3s ease;
+  }
+  .nav-links a:hover{ opacity:1; }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    border:1px solid var(--gold);
+    color:var(--gold-light) !important;
+    padding:0.6rem 1.3rem;
+    font-size:0.72rem;
+  }
+  .nav-cta:hover{ background:var(--gold); color:var(--black) !important; }
+  .burger{
+    display:none;
+    background:none; border:none; cursor:pointer;
+  }
+  .burger span{
+    display:block; width:22px; height:1px; background:var(--ivory); margin:6px 0;
+  }
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed; top:0; right:0; bottom:0;
+      background:var(--black);
+      flex-direction:column;
+      justify-content:center;
+      gap:2rem;
+      width:min(78vw,320px);
+      transform:translateX(100%);
+      transition:transform 0.4s ease;
+    }
+    .nav-links.open{ transform:translateX(0); }
+    .burger{ display:block; z-index:70; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    background:var(--black);
+    overflow:hidden;
+  }
+  .hero-media{
+    position:absolute; inset:0;
+  }
+  .hero-media img{
+    width:100%; height:100%; object-fit:cover;
+    object-position:70% 20%;
+    opacity:0.92;
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(0deg, rgba(20,18,16,0.96) 4%, rgba(20,18,16,0.35) 42%, rgba(20,18,16,0.1) 65%),
+      linear-gradient(90deg, rgba(20,18,16,0.7) 0%, rgba(20,18,16,0.05) 55%);
+  }
+  .hero .wrap{
+    position:relative;
+    z-index:2;
+    padding-bottom:5.5rem;
+    padding-top:9rem;
+    max-width:640px;
+  }
+  .hero h1{
+    font-size:clamp(2.5rem, 5vw, 4.1rem);
+    line-height:1.06;
+    color:var(--ivory);
+  }
+  .hero .sub{
+    font-size:clamp(1.2rem, 1.8vw, 1.55rem);
+    color:var(--gold-light);
+    margin-top:0.4rem;
+  }
+  .hero p.desc{
+    margin-top:1.5rem;
+    max-width:38ch;
+    color:rgba(242,236,225,0.78);
+    font-size:0.98rem;
+    font-weight:300;
+  }
+  .hero-ctas{ margin-top:2.4rem; display:flex; gap:1.1rem; flex-wrap:wrap; }
+  .btn-gold, .btn-ghost{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding:0.95rem 2rem;
+    font-size:0.74rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    transition:all 0.25s ease;
+  }
+  .btn-gold{ background:var(--gold); color:var(--black); }
+  .btn-gold:hover{ background:var(--gold-light); }
+  .btn-ghost{ border:1px solid rgba(242,236,225,0.5); color:var(--ivory); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-light); }
+
+  .scroll-mark{
+    position:absolute; right:6vw; bottom:2.6rem; z-index:2;
+    color:var(--ivory); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+    display:flex; align-items:center; gap:0.8rem;
+    opacity:0.7;
+  }
+  .scroll-mark .line{ width:36px; height:1px; background:var(--gold); }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{ position:relative; padding:7.5rem 0; }
+  .section-head{ max-width:620px; }
+  .section-head h2{ font-size:clamp(2rem,3.4vw,2.9rem); margin-top:0.9rem; }
+  .section-head p{ margin-top:1.1rem; font-weight:300; }
+  .section-head.on-light p{ color:var(--ink-soft); }
+  .section-head.on-dark{ color:var(--ivory); }
+  .section-head.on-dark p{ color:rgba(242,236,225,0.72); }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- ABOUT (ivory) ---------- */
+  .about{ background:var(--ivory); }
+  .about .wrap{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:6vw;
+    align-items:center;
+  }
+  .about-photo{ aspect-ratio:4/5; }
+  .about-photo img{ width:100%; height:100%; object-fit:cover; filter:grayscale(0.08) contrast(1.03); }
+  .about-text .quote{
+    font-size:clamp(1.3rem,2vw,1.7rem);
+    color:var(--espresso);
+    margin:1.4rem 0 1.6rem;
+  }
+  .about-text p.body{ font-weight:300; color:var(--ink-soft); max-width:44ch; }
+  .credential{
+    margin-top:2rem; padding-top:1.6rem;
+    border-top:1px solid var(--line-light);
+    font-size:0.85rem; letter-spacing:0.03em; color:var(--ink-soft);
+  }
+  .credential strong{ font-family:'Bodoni Moda', serif; font-weight:500; color:var(--ink); font-size:1rem; }
+
+  @media (max-width:900px){
+    .about .wrap{ grid-template-columns:1fr; }
+    .about-photo{ max-width:340px; margin:0 auto; }
+  }
+
+  /* ---------- ESPECIALIDADES (dark) ---------- */
+  .specialties{ background:var(--black); color:var(--ivory); }
+  .spec-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    margin-top:4rem;
+    border-top:1px solid var(--line-dark);
+  }
+  .spec-col{
+    padding:3rem 3rem 3rem 0;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .spec-col:first-child{ border-right:1px solid var(--line-dark); }
+  .spec-numeral{ font-family:'Bodoni Moda', serif; font-size:0.85rem; color:var(--gold); letter-spacing:0.1em; }
+  .spec-col h3{ font-size:1.7rem; margin:0.6rem 0 1.6rem; color:var(--ivory); }
+  .spec-list{ list-style:none; margin:0; padding:0; }
+  .spec-list li{
+    display:flex; justify-content:space-between; gap:1.5rem;
+    padding:0.95rem 0;
+    border-top:1px solid var(--line-dark);
+    font-size:0.95rem;
+  }
+  .spec-list li:first-child{ border-top:none; }
+  .spec-list li .name{ color:var(--ivory); font-weight:400; }
+  .spec-list li .desc{ color:rgba(242,236,225,0.55); font-size:0.84rem; text-align:right; max-width:56%; font-weight:300; }
+
+  @media (max-width:900px){
+    .spec-grid{ grid-template-columns:1fr; }
+    .spec-col{ padding:2.4rem 0; border-right:none !important; }
+    .spec-col + .spec-col{ border-top:1px solid var(--line-dark); }
+    .spec-list li{ flex-direction:column; gap:0.2rem; }
+    .spec-list li .desc{ text-align:left; max-width:100%; }
+  }
+
+  /* ---------- BANNER (full bleed technique photo) ---------- */
+  .banner{
+    position:relative;
+    min-height:74vh;
+    display:flex; align-items:center;
+    background:var(--espresso);
+  }
+  .banner img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 25%;
+  }
+  .banner::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(20,18,16,0.55) 0%, rgba(20,18,16,0.25) 40%, rgba(20,18,16,0.85) 100%);
+  }
+  .banner .wrap{ position:relative; z-index:2; text-align:center; max-width:680px; margin:0 auto; }
+  .banner .eyebrow{ justify-content:center; display:flex; }
+  .banner h2{ color:var(--ivory); font-size:clamp(1.9rem,3.4vw,2.7rem); margin-top:1rem; }
+  .banner p{ color:rgba(242,236,225,0.8); margin-top:1.2rem; font-weight:300; max-width:52ch; margin-left:auto; margin-right:auto; }
+
+  /* ---------- RESULTS (ivory) ---------- */
+  .results{ background:var(--ivory); }
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line-light);
+    margin-top:3.5rem;
+    border:1px solid var(--line-light);
+  }
+  .gallery-item{
+    aspect-ratio:3/4;
+    background:var(--ivory-deep);
+    position:relative;
+    display:flex; align-items:flex-end; justify-content:center;
+    padding-bottom:1.2rem;
+  }
+  .gallery-item span{
+    font-size:0.66rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .results-note{ margin-top:1.6rem; font-size:0.82rem; color:var(--ink-soft); font-weight:300; }
+
+  @media (max-width:900px){ .gallery{ grid-template-columns:1fr 1fr; } }
+
+  /* ---------- TESTIMONIAL (dark) ---------- */
+  .testimonial{ background:var(--black); color:var(--ivory); text-align:center; }
+  .testimonial .wrap{ max-width:740px; }
+  .testimonial blockquote{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:500;
+    font-size:clamp(1.5rem,2.6vw,2.15rem);
+    color:var(--gold-light);
+    margin:0;
+  }
+  .testimonial cite{
+    display:block; margin-top:1.8rem; font-style:normal;
+    font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,236,225,0.6);
+  }
+  .testimonial .placeholder-note{ margin-top:0.9rem; font-size:0.72rem; color:rgba(242,236,225,0.4); }
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    background:linear-gradient(180deg, var(--espresso), var(--black));
+    color:var(--ivory);
+    text-align:center;
+  }
+  .final-cta h2{ font-size:clamp(2.1rem,4vw,3.1rem); max-width:16ch; margin:0 auto; }
+  .final-cta p{ color:rgba(242,236,225,0.72); margin-top:1.2rem; max-width:46ch; margin-left:auto; margin-right:auto; font-weight:300; }
+  .final-cta .hero-ctas{ justify-content:center; margin-top:2.3rem; }
+
+  /* ---------- LEAD FORM ---------- */
+  .lead-form{
+    max-width:520px;
+    margin:2.8rem auto 0;
+    text-align:left;
+  }
+  .lead-form .field{ margin-bottom:1.5rem; }
+  .lead-form label{
+    display:block;
+    font-size:0.68rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:0.6rem;
+  }
+  .lead-form input,
+  .lead-form select,
+  .lead-form textarea{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--line-dark);
+    color:var(--ivory);
+    font-family:'Jost', sans-serif;
+    font-size:0.98rem;
+    font-weight:300;
+    padding:0.6rem 0.1rem;
+    transition:border-color 0.25s ease;
+  }
+  .lead-form select{
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23BE9A5C'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 0.3rem center;
+  }
+  .lead-form select option{ background:var(--black); color:var(--ivory); }
+  .lead-form textarea{ resize:vertical; min-height:80px; font-family:'Jost',sans-serif; }
+  .lead-form input:focus,
+  .lead-form select:focus,
+  .lead-form textarea:focus{ border-color:var(--gold); outline:none; }
+  .lead-form input::placeholder,
+  .lead-form textarea::placeholder{ color:rgba(242,236,225,0.35); }
+  .lead-form .submit-row{ text-align:center; margin-top:0.6rem; }
+  .lead-form button{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding:0.95rem 2.4rem;
+    font-size:0.74rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    background:var(--gold);
+    color:var(--black);
+    border:none;
+    cursor:pointer;
+    transition:background 0.25s ease;
+  }
+  .lead-form button:hover{ background:var(--gold-light); }
+  .lead-form button:disabled{ opacity:0.55; cursor:not-allowed; }
+  .form-status{
+    margin-top:1.1rem;
+    font-size:0.82rem;
+    text-align:center;
+    min-height:1.2em;
+  }
+  .form-status.success{ color:#B9CBA8; }
+  .form-status.error{ color:#D79A8C; }
+  .form-divider{
+    display:flex; align-items:center; gap:1rem;
+    max-width:520px; margin:2.6rem auto 0;
+    color:rgba(242,236,225,0.4);
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+  }
+  .form-divider .line{ flex:1; height:1px; background:var(--line-dark); }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--black); color:rgba(242,236,225,0.7); padding:3.6rem 0 2.2rem; border-top:1px solid var(--line-dark); }
+  .footer-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:2.2rem; }
+  .footer-col h4{
+    font-family:'Jost',sans-serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold);
+    margin:0 0 1rem;
+  }
+  .footer-col a, .footer-col p{ display:block; font-size:0.9rem; margin-bottom:0.5rem; font-weight:300; color:rgba(242,236,225,0.72); }
+  .footer-col a:hover{ color:var(--gold-light); }
+  .footer-bottom{
+    margin-top:2.6rem; padding-top:1.6rem; border-top:1px solid var(--line-dark);
+    font-size:0.72rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.6rem; color:rgba(242,236,225,0.5);
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav">
+    <a href="#" class="logo">Adriely Anute</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato" class="nav-cta">Agendar</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-media">
+    <img src="img/syringes-profile.jpg" alt="Dra. Adriely Anute em perfil, aplicando técnica de harmonização facial">
+  </div>
+  <div class="wrap">
+    <div class="eyebrow on-dark">Harmonização Facial · Implantodontia · Facetas</div>
+    <div class="gold-rule"></div>
+    <h1>Precisão que devolve a própria essência.</h1>
+    <p class="sub script">Nunca outro rosto — só o seu, em equilíbrio.</p>
+    <p class="desc">Tratamentos faciais e odontológicos de alto padrão, conduzidos com técnica apurada e discrição — em João Pessoa, PB.</p>
+    <div class="hero-ctas">
+      <a href="#contato" class="btn-gold">Agendar avaliação</a>
+      <a href="#especialidades" class="btn-ghost">Especialidades</a>
+    </div>
+  </div>
+  <div class="scroll-mark"><span class="line"></span>Role para conhecer</div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="about-photo frame reveal">
+      <img src="img/smile-portrait.jpg" alt="Dra. Adriely Anute, retrato">
+    </div>
+    <div class="about-text reveal">
+      <div class="eyebrow on-light">Sobre</div>
+      <p class="quote script">"Cada rosto segue uma lógica própria — o trabalho começa em entendê-la antes de tocar nela."</p>
+      <p class="body">Facial ou dental, o objetivo nunca é criar um rosto novo. É reconhecer a proporção que já existe e devolvê-la com técnica precisa, discrição e um olhar clínico que nunca deixa de ouvir. Sem exagero, sem pressa — cada decisão é conduzida junto com você.</p>
+      <div class="credential">
+        <strong>Dra. Adriely Anute</strong><br>
+        Cirurgiã-dentista · Harmonização Facial e Implantodontia · João Pessoa, PB
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="specialties" id="especialidades">
+  <div class="wrap">
+    <div class="section-head on-dark reveal">
+      <div class="eyebrow on-dark">Especialidades</div>
+      <h2>Dois caminhos, um mesmo padrão de cuidado</h2>
+      <p>Rosto e sorriso tratados com a mesma exigência técnica — sempre explicada em termos claros.</p>
+    </div>
+    <div class="spec-grid reveal">
+      <div class="spec-col">
+        <div class="spec-numeral">I</div>
+        <h3>Harmonização Facial</h3>
+        <ul class="spec-list">
+          <li><span class="name">Toxina botulínica</span><span class="desc">suaviza marcas de expressão</span></li>
+          <li><span class="name">Preenchimento</span><span class="desc">devolve volume e contorno</span></li>
+          <li><span class="name">Estimuladores de colágeno</span><span class="desc">firmam a pele aos poucos</span></li>
+          <li><span class="name">Fios de sustentação</span><span class="desc">reposicionam sem cirurgia</span></li>
+        </ul>
+      </div>
+      <div class="spec-col">
+        <div class="spec-numeral">II</div>
+        <h3>Implantodontia &amp; Facetas</h3>
+        <ul class="spec-list">
+          <li><span class="name">Implante dentário</span><span class="desc">substitui com fixação no osso</span></li>
+          <li><span class="name">Facetas de porcelana</span><span class="desc">forma e cor em uma só etapa</span></li>
+          <li><span class="name">Facetas de resina</span><span class="desc">ajuste rápido, sem desgaste</span></li>
+          <li><span class="name">Clareamento dental</span><span class="desc">acompanha qualquer tratamento</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banner reveal">
+  <img src="img/syringes-front.jpg" alt="Técnica de harmonização facial em quatro etapas, com precisão clínica">
+  <div class="wrap">
+    <div class="eyebrow on-dark">Técnica</div>
+    <h2>Cada etapa pensada, nada por acaso</h2>
+    <p>Diagnóstico, proporção e execução conduzidos com o mesmo rigor — do primeiro traço ao resultado final.</p>
+  </div>
+</section>
+
+<section class="results" id="resultados">
+  <div class="wrap">
+    <div class="section-head on-light reveal">
+      <div class="eyebrow on-light">Resultados</div>
+      <h2>Resultados que falam por si</h2>
+      <p>Antes e depois reais, sempre com autorização dos pacientes.</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="gallery-item"><span>antes / depois 01</span></div>
+      <div class="gallery-item"><span>antes / depois 02</span></div>
+      <div class="gallery-item"><span>antes / depois 03</span></div>
+      <div class="gallery-item"><span>antes / depois 04</span></div>
+    </div>
+    <p class="results-note reveal">Espaços reservados para fotos reais de pacientes — substituir pelos casos aprovados para divulgação.</p>
+  </div>
+</section>
+
+<section class="testimonial" id="depoimentos">
+  <div class="wrap reveal">
+    <div class="eyebrow on-dark" style="justify-content:center; display:flex;">Depoimento</div>
+    <blockquote style="margin-top:1.2rem;">"Fui buscando um ajuste. Saí entendendo que o rosto sempre esteve certo — só faltava atenção no lugar certo."</blockquote>
+    <cite>Paciente</cite>
+    <p class="placeholder-note">Texto ilustrativo — substituir por depoimento real autorizado por paciente.</p>
+  </div>
+</section>
+
+<section class="final-cta" id="contato">
+  <div class="wrap reveal">
+    <div class="eyebrow on-dark" style="justify-content:center; display:flex;">Vamos conversar</div>
+    <div class="gold-rule center"></div>
+    <h2>Vamos conversar sobre o seu rosto.</h2>
+    <p>Agende uma avaliação e entenda, com calma, o que faz sentido para você — sem compromisso e sem pressa.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/5583900000000" class="btn-gold">Agendar pelo WhatsApp</a>
+      <a href="https://instagram.com/draadrielyanute" class="btn-ghost">@draadrielyanute</a>
+    </div>
+
+    <div class="form-divider"><span class="line"></span>ou deixe seus dados<span class="line"></span></div>
+
+    <form class="lead-form" id="leadForm">
+      <div class="field">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+      </div>
+      <div class="field">
+        <label for="whatsapp">WhatsApp</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(83) 90000-0000" required>
+      </div>
+      <div class="field">
+        <label for="procedimento">Procedimento de interesse</label>
+        <select id="procedimento" name="procedimento" required>
+          <option value="" disabled selected>Selecione uma opção</option>
+          <option value="Harmonização facial">Harmonização facial</option>
+          <option value="Implante dentário">Implante dentário</option>
+          <option value="Facetas">Facetas</option>
+          <option value="Ainda não sei">Ainda não sei — quero orientação</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="mensagem">Mensagem (opcional)</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco do que você gostaria de tratar"></textarea>
+      </div>
+      <div class="submit-row">
+        <button type="submit" id="leadSubmitBtn">Enviar e ser contatada</button>
+        <p class="form-status" id="leadFormStatus" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Dra. Adriely Anute</h4>
+        <p>Harmonização Facial · Implantodontia · Facetas</p>
+        <p>João Pessoa, PB</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="#sobre">Sobre</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#depoimentos">Depoimentos</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5583900000000">WhatsApp</a>
+        <a href="https://instagram.com/draadrielyanute">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dra. Adriely Anute. Todos os direitos reservados.</span>
+      <span>CRO — número a inserir</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const burger = document.getElementById('burgerBtn');
+  const links = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+<!--
+  ======================================================================
+  CONFIGURAÇÃO DO SUPABASE — leia antes de publicar
+  ======================================================================
+  1. Crie a tabela "leads" no Supabase com as colunas:
+     id (uuid, default gen_random_uuid()), created_at (timestamptz, default now()),
+     nome (text), whatsapp (text), procedimento (text), mensagem (text), origem (text)
+  2. Ative Row Level Security e crie uma policy de INSERT liberada para "anon"
+     (sem policy de SELECT/UPDATE/DELETE pública).
+  3. Troque SUPABASE_URL e SUPABASE_ANON_KEY abaixo pelos valores reais
+     (Project Settings > API no painel do Supabase).
+  ======================================================================
+-->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL = "COLE_AQUI_A_SUPABASE_URL";
+  const SUPABASE_ANON_KEY = "COLE_AQUI_A_ANON_KEY";
+
+  const supabaseClient = (SUPABASE_URL.startsWith("http"))
+    ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+
+  const leadForm = document.getElementById('leadForm');
+  const leadStatus = document.getElementById('leadFormStatus');
+  const leadBtn = document.getElementById('leadSubmitBtn');
+
+  leadForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!supabaseClient){
+      leadStatus.textContent = "Formulário ainda não configurado — defina a SUPABASE_URL e a ANON_KEY no código.";
+      leadStatus.className = "form-status error";
+      return;
+    }
+
+    const payload = {
+      nome: document.getElementById('nome').value.trim(),
+      whatsapp: document.getElementById('whatsapp').value.trim(),
+      procedimento: document.getElementById('procedimento').value,
+      mensagem: document.getElementById('mensagem').value.trim(),
+      origem: "site-adriely"
+    };
+
+    leadBtn.disabled = true;
+    leadBtn.textContent = "Enviando...";
+    leadStatus.textContent = "";
+    leadStatus.className = "form-status";
+
+    const { error } = await supabaseClient.from('leads').insert([payload]);
+
+    if (error){
+      leadStatus.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
+      leadStatus.className = "form-status error";
+      leadBtn.disabled = false;
+      leadBtn.textContent = "Enviar e ser contatada";
+    } else {
+      leadStatus.textContent = "Recebido! Em breve entramos em contato pelo WhatsApp.";
+      leadStatus.className = "form-status success";
+      leadForm.reset();
+      leadBtn.disabled = false;
+      leadBtn.textContent = "Enviar e ser contatada";
+    }
+  });
+</script>
+
+</body>
+</html>
