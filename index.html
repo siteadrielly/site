@@ -674,14 +674,14 @@
   <div class="hero-media">
     <span class="frame-mark tl" aria-hidden="true"></span>
     <span class="frame-mark br" aria-hidden="true"></span>
-    <img src="img/syringes-profile.webp" alt="Dra. Adriely Anute em perfil, aplicando técnica de harmonização facial" width="1100" height="1600" fetchpriority="high" decoding="async">
+    <img src="img/syringes-profile.webp" alt="Dra. Adriely Anute em perfil, aplicando técnica de harmonização facial" width="800" height="1164" fetchpriority="high" decoding="async">
   </div>
 </section>
 
 <section class="about" id="sobre">
   <div class="wrap">
     <div class="about-photo frame reveal">
-      <img src="img/smile-portrait.webp" alt="Dra. Adriely Anute, retrato" width="1066" height="1599" loading="lazy" decoding="async">
+      <img src="img/smile-portrait.webp" alt="Dra. Adriely Anute, retrato" width="630" height="945" loading="lazy" decoding="async">
     </div>
     <div class="about-text reveal">
       <div class="eyebrow on-light">Sobre</div>
@@ -728,7 +728,7 @@
 </section>
 
 <section class="banner reveal">
-  <img src="img/syringes-front.webp" alt="Técnica de harmonização facial em quatro etapas, com precisão clínica" width="1185" height="1600" loading="lazy" decoding="async">
+  <img src="img/syringes-front.webp" alt="Técnica de harmonização facial em quatro etapas, com precisão clínica" width="950" height="1283" loading="lazy" decoding="async">
   <div class="wrap">
     <div class="eyebrow on-dark">Técnica</div>
     <h2>Cada etapa pensada, nada por acaso</h2>
@@ -998,7 +998,25 @@
   });
 </script>
 
-<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  // Carrega o script pesado do Instagram só quando a seção estiver perto da tela,
+  // evitando que ele trave o carregamento inicial da página.
+  const igSection = document.querySelector('.instagram-section');
+  if (igSection) {
+    const igObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const script = document.createElement('script');
+          script.src = 'https://www.instagram.com/embed.js';
+          script.async = true;
+          document.body.appendChild(script);
+          igObserver.disconnect();
+        }
+      });
+    }, { rootMargin: '400px' });
+    igObserver.observe(igSection);
+  }
+</script>
 
 </body>
 </html>
