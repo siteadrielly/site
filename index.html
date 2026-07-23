@@ -4,9 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dra. Adriely Anute — Harmonização Facial &amp; Implantodontia</title>
+<meta name="description" content="Harmonização facial, implantodontia e facetas em João Pessoa, PB. Tratamentos de alto padrão conduzidos com técnica apurada e discrição.">
+
+<!-- Open Graph (WhatsApp, Facebook, Instagram, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adrielyanute.com.br/">
+<meta property="og:title" content="Dra. Adriely Anute — Harmonização Facial & Implantodontia">
+<meta property="og:description" content="Harmonização facial, implantodontia e facetas em João Pessoa, PB. Tratamentos de alto padrão conduzidos com técnica apurada e discrição.">
+<meta property="og:image" content="https://adrielyanute.com.br/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dra. Adriely Anute — Harmonização Facial & Implantodontia">
+<meta name="twitter:description" content="Harmonização facial, implantodontia e facetas em João Pessoa, PB.">
+<meta name="twitter:image" content="https://adrielyanute.com.br/img/og-image.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,500&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/syringes-profile.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Jost:wght@300;400&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --black:#141210;
@@ -45,6 +64,9 @@
     font-family:'Bodoni Moda', serif;
     font-weight:500;
     margin:0;
+    line-height:1.22;
+    padding-top:0.12em;
+    overflow:visible;
   }
 
   .script{
@@ -200,7 +222,7 @@
   }
   .hero h1{
     font-size:clamp(2.3rem, 3.6vw, 3.5rem);
-    line-height:1.1;
+    line-height:1.2;
     color:var(--ivory);
     max-width:13ch;
   }
@@ -495,6 +517,29 @@
   }
   .testimonial .placeholder-note{ margin-top:0.9rem; font-size:0.72rem; color:rgba(242,236,225,0.4); }
 
+  /* ---------- INSTAGRAM (ivory) ---------- */
+  .instagram-section{ background:var(--ivory); text-align:center; }
+  .instagram-section .section-head{ margin-left:auto; margin-right:auto; }
+  .instagram-handle{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    margin-top:0.6rem;
+    font-size:0.95rem;
+    color:var(--gold-dim);
+  }
+  .instagram-widget-frame{
+    margin-top:3rem;
+    border:1px solid var(--line-light);
+    min-height:120px;
+    display:flex; align-items:center; justify-content:center;
+    padding:2.5rem;
+  }
+  .instagram-widget-frame .placeholder-msg{
+    color:var(--ink-soft);
+    font-size:0.88rem;
+    font-weight:300;
+    max-width:46ch;
+  }
+
   /* ---------- FINAL CTA ---------- */
   .final-cta{
     background:linear-gradient(180deg, var(--espresso), var(--black));
@@ -629,14 +674,14 @@
   <div class="hero-media">
     <span class="frame-mark tl" aria-hidden="true"></span>
     <span class="frame-mark br" aria-hidden="true"></span>
-    <img src="img/syringes-profile.jpg" alt="Dra. Adriely Anute em perfil, aplicando técnica de harmonização facial">
+    <img src="img/syringes-profile.webp" alt="Dra. Adriely Anute em perfil, aplicando técnica de harmonização facial" width="1100" height="1600" fetchpriority="high" decoding="async">
   </div>
 </section>
 
 <section class="about" id="sobre">
   <div class="wrap">
     <div class="about-photo frame reveal">
-      <img src="img/smile-portrait.jpg" alt="Dra. Adriely Anute, retrato">
+      <img src="img/smile-portrait.webp" alt="Dra. Adriely Anute, retrato" width="1066" height="1599" loading="lazy" decoding="async">
     </div>
     <div class="about-text reveal">
       <div class="eyebrow on-light">Sobre</div>
@@ -683,7 +728,7 @@
 </section>
 
 <section class="banner reveal">
-  <img src="img/syringes-front.jpg" alt="Técnica de harmonização facial em quatro etapas, com precisão clínica">
+  <img src="img/syringes-front.webp" alt="Técnica de harmonização facial em quatro etapas, com precisão clínica" width="1185" height="1600" loading="lazy" decoding="async">
   <div class="wrap">
     <div class="eyebrow on-dark">Técnica</div>
     <h2>Cada etapa pensada, nada por acaso</h2>
@@ -700,12 +745,12 @@
     </div>
 
     <div class="clinic-gallery reveal">
-      <div class="cg-item tall"><img src="img/clinica/recepcao-01.jpg" alt="Recepção da clínica Athos Odontologia"></div>
-      <div class="cg-item wide"><img src="img/clinica/recepcao-02.jpg" alt="Recepção com parede de mármore e logo Athos"></div>
-      <div class="cg-item"><img src="img/clinica/sala-espera-01.jpg" alt="Sala de espera da clínica"></div>
-      <div class="cg-item tall"><img src="img/clinica/logo-parede.jpg" alt="Detalhe do logo Athos Odontologia na parede"></div>
-      <div class="cg-item wide"><img src="img/clinica/workstation-02.jpg" alt="Área de recepção com vista para a orla do Bessa"></div>
-      <div class="cg-item"><img src="img/clinica/sala-espera-02.jpg" alt="Sofá e espelho da sala de espera"></div>
+      <div class="cg-item tall"><img src="img/clinica/recepcao-01.webp" alt="Recepção da clínica Athos Odontologia" width="720" height="1280" loading="lazy" decoding="async"></div>
+      <div class="cg-item wide"><img src="img/clinica/recepcao-02.webp" alt="Recepção com parede de mármore e logo Athos" width="1280" height="720" loading="lazy" decoding="async"></div>
+      <div class="cg-item"><img src="img/clinica/sala-espera-01.webp" alt="Sala de espera da clínica" width="720" height="1280" loading="lazy" decoding="async"></div>
+      <div class="cg-item tall"><img src="img/clinica/logo-parede.webp" alt="Detalhe do logo Athos Odontologia na parede" width="720" height="1280" loading="lazy" decoding="async"></div>
+      <div class="cg-item wide"><img src="img/clinica/workstation-02.webp" alt="Área de recepção com vista para a orla do Bessa" width="720" height="1280" loading="lazy" decoding="async"></div>
+      <div class="cg-item"><img src="img/clinica/sala-espera-02.webp" alt="Sofá e espelho da sala de espera" width="720" height="1280" loading="lazy" decoding="async"></div>
     </div>
 
     <div class="location-block reveal">
@@ -742,16 +787,16 @@
     </div>
     <div class="gallery reveal">
       <div class="gallery-item has-photo">
-        <img src="img/resultados/botox-testa-01.jpg" alt="Antes e depois de aplicação de toxina botulínica na testa">
+        <img src="img/resultados/botox-testa-01.webp" alt="Antes e depois de aplicação de toxina botulínica na testa" width="1280" height="1280" loading="lazy" decoding="async">
         <span>antes / depois — botox</span>
       </div>
-      <div class="gallery-item has-photo"><img src="img/resultados/rino-01.jpg" alt="Antes e depois de rinomodelação, perfil masculino"><span>antes / depois — rinomodelação</span></div>
-      <div class="gallery-item has-photo"><img src="img/resultados/rino-02.jpg" alt="Antes e depois de rinomodelação, perfil"><span>antes / depois — rinomodelação</span></div>
-      <div class="gallery-item has-photo"><img src="img/resultados/rino-03.jpg" alt="Antes e depois de rinomodelação, perfil"><span>antes / depois — rinomodelação</span></div>
-      <div class="gallery-item has-photo"><img src="img/resultados/rino-04.jpg" alt="Antes e depois de rinomodelação, perfil"><span>antes / depois — rinomodelação</span></div>
-      <div class="gallery-item has-photo"><img src="img/resultados/rino-05.jpg" alt="Antes e depois de rinomodelação, perfil"><span>antes / depois — rinomodelação</span></div>
-      <div class="gallery-item has-photo"><img src="img/resultados/facetas-01.jpg" alt="Antes e depois de facetas dentárias"><span>antes / depois — facetas</span></div>
-      <div class="gallery-item has-photo"><img src="img/resultados/facetas-02.jpg" alt="Antes e depois de facetas dentárias, sorriso"><span>antes / depois — facetas</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-01.webp" alt="Antes e depois de rinomodelação, perfil masculino" width="1120" height="1400" loading="lazy" decoding="async"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-02.webp" alt="Antes e depois de rinomodelação, perfil" width="1120" height="1400" loading="lazy" decoding="async"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-03.webp" alt="Antes e depois de rinomodelação, perfil" width="1024" height="1280" loading="lazy" decoding="async"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-04.webp" alt="Antes e depois de rinomodelação, perfil" width="1080" height="1080" loading="lazy" decoding="async"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-05.webp" alt="Antes e depois de rinomodelação, perfil" width="1080" height="1080" loading="lazy" decoding="async"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/facetas-01.webp" alt="Antes e depois de facetas dentárias" width="1080" height="1080" loading="lazy" decoding="async"><span>antes / depois — facetas</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/facetas-02.webp" alt="Antes e depois de facetas dentárias, sorriso" width="1080" height="1080" loading="lazy" decoding="async"><span>antes / depois — facetas</span></div>
     </div>
     <p class="results-note reveal">Fotos reais de pacientes, sempre com autorização para divulgação.</p>
   </div>
@@ -762,6 +807,27 @@
     <div class="eyebrow on-dark" style="justify-content:center; display:flex;">Depoimento</div>
     <blockquote style="margin-top:1.2rem;">"A Dra. Adria me devolveu meu sorriso e minha autoestima. Deus abençoe sempre — pode contar comigo, vou sempre te indicar."</blockquote>
     <cite>Depoimento de paciente</cite>
+  </div>
+</section>
+
+<section class="instagram-section">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow on-light">Instagram</div>
+      <h2>O dia a dia da clínica, direto de lá</h2>
+      <a class="instagram-handle" href="https://instagram.com/draadrielyanute" target="_blank" rel="noopener">@draadrielyanute</a>
+    </div>
+
+    <!--
+      ESPAÇO DO WIDGET DO INSTAGRAM
+      ======================================================================
+      Cole aqui o código gerado pelo widget (Fouita, Elfsight, SociableKit, etc.)
+      no lugar do <div class="placeholder-msg">...</div> abaixo.
+      ======================================================================
+    -->
+    <div class="instagram-widget-frame reveal" style="padding:1.5rem; background:transparent;">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/draadrielyanute/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/draadrielyanute/?utm_source=ig_embed&utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this profile on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a></div></blockquote>
+    </div>
   </div>
 </section>
 
@@ -833,7 +899,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Dra. Adriely Anute. Todos os direitos reservados.</span>
-      <span>CRO — número a inserir</span>
+      <span>CRO-PB 7284</span>
     </div>
   </div>
 </footer>
@@ -882,8 +948,8 @@
 -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script>
-  const SUPABASE_URL = "COLE_AQUI_A_SUPABASE_URL";
-  const SUPABASE_ANON_KEY = "COLE_AQUI_A_ANON_KEY";
+  const SUPABASE_URL = "https://vjypwqgijryybflmqamu.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_ZHsIdjFwcGZRCaUubt6dew_31_TCueA";
 
   const supabaseClient = (SUPABASE_URL.startsWith("http"))
     ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
@@ -931,6 +997,8 @@
     }
   });
 </script>
+
+<script async src="https://www.instagram.com/embed.js"></script>
 
 </body>
 </html>
