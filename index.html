@@ -185,48 +185,35 @@
   .hero{
     position:relative;
     min-height:100vh;
-    display:flex;
-    align-items:flex-end;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
     background:var(--black);
     overflow:hidden;
   }
-  .hero-media{
-    position:absolute; inset:0;
-  }
-  .hero-media img{
-    width:100%; height:100%; object-fit:cover;
-    object-position:70% 20%;
-    opacity:0.92;
-  }
-  .hero-media::after{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      linear-gradient(0deg, rgba(20,18,16,0.96) 4%, rgba(20,18,16,0.35) 42%, rgba(20,18,16,0.1) 65%),
-      linear-gradient(90deg, rgba(20,18,16,0.7) 0%, rgba(20,18,16,0.05) 55%);
-  }
-  .hero .wrap{
+  .hero-text{
     position:relative;
     z-index:2;
-    padding-bottom:5.5rem;
-    padding-top:9rem;
-    max-width:640px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:9rem 5vw 5rem 6vw;
   }
   .hero h1{
-    font-size:clamp(2.5rem, 5vw, 4.1rem);
-    line-height:1.06;
+    font-size:clamp(2.3rem, 3.6vw, 3.5rem);
+    line-height:1.1;
     color:var(--ivory);
+    max-width:13ch;
   }
   .hero .sub{
-    font-size:clamp(1.2rem, 1.8vw, 1.55rem);
+    font-size:clamp(1.1rem, 1.5vw, 1.4rem);
     color:var(--gold-light);
-    margin-top:0.4rem;
+    margin-top:0.5rem;
   }
   .hero p.desc{
     margin-top:1.5rem;
-    max-width:38ch;
-    color:rgba(242,236,225,0.78);
-    font-size:0.98rem;
+    max-width:36ch;
+    color:rgba(242,236,225,0.72);
+    font-size:0.96rem;
     font-weight:300;
   }
   .hero-ctas{ margin-top:2.4rem; display:flex; gap:1.1rem; flex-wrap:wrap; }
@@ -243,13 +230,40 @@
   .btn-ghost{ border:1px solid rgba(242,236,225,0.5); color:var(--ivory); }
   .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-light); }
 
+  .hero-media{
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-media img{
+    width:100%; height:100%; object-fit:cover;
+    object-position:60% 22%;
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(20,18,16,0.55) 0%, rgba(20,18,16,0) 14%);
+  }
+  .hero-media .frame-mark{
+    position:absolute; z-index:2;
+    width:34px; height:34px;
+    border:1px solid var(--gold);
+  }
+  .hero-media .frame-mark.tl{ top:2.2rem; left:2.2rem; border-right:none; border-bottom:none; }
+  .hero-media .frame-mark.br{ bottom:2.2rem; right:2.2rem; border-left:none; border-top:none; }
+
   .scroll-mark{
-    position:absolute; right:6vw; bottom:2.6rem; z-index:2;
-    color:var(--ivory); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+    margin-top:3.2rem;
+    color:rgba(242,236,225,0.5); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
     display:flex; align-items:center; gap:0.8rem;
-    opacity:0.7;
   }
   .scroll-mark .line{ width:36px; height:1px; background:var(--gold); }
+
+  @media (max-width:960px){
+    .hero{ grid-template-columns:1fr; }
+    .hero-media{ min-height:46vh; order:-1; }
+    .hero-text{ padding:3rem 6vw 3.5rem; }
+    .scroll-mark{ display:none; }
+  }
 
   /* ---------- SECTION SCAFFOLD ---------- */
   section{ position:relative; padding:7.5rem 0; }
@@ -302,10 +316,11 @@
     border-top:1px solid var(--line-dark);
   }
   .spec-col{
-    padding:3rem 3rem 3rem 0;
+    padding:3rem 3rem 3rem 3rem;
     border-bottom:1px solid var(--line-dark);
   }
-  .spec-col:first-child{ border-right:1px solid var(--line-dark); }
+  .spec-col:first-child{ border-right:1px solid var(--line-dark); padding-left:0; }
+  .spec-col:last-child{ padding-right:0; }
   .spec-numeral{ font-family:'Bodoni Moda', serif; font-size:0.85rem; color:var(--gold); letter-spacing:0.1em; }
   .spec-col h3{ font-size:1.7rem; margin:0.6rem 0 1.6rem; color:var(--ivory); }
   .spec-list{ list-style:none; margin:0; padding:0; }
@@ -351,22 +366,36 @@
   .results{ background:var(--ivory); }
   .gallery{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:1px;
     background:var(--line-light);
     margin-top:3.5rem;
     border:1px solid var(--line-light);
   }
   .gallery-item{
-    aspect-ratio:3/4;
+    aspect-ratio:1/1;
     background:var(--ivory-deep);
     position:relative;
     display:flex; align-items:flex-end; justify-content:center;
     padding-bottom:1.2rem;
+    overflow:hidden;
+  }
+  .gallery-item img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:top center;
   }
   .gallery-item span{
     font-size:0.66rem; letter-spacing:0.12em; text-transform:uppercase;
     color:var(--ink-soft);
+    position:relative;
+    z-index:2;
+  }
+  .gallery-item.has-photo span{
+    background:rgba(242,236,225,0.9);
+    padding:0.4rem 0.9rem;
+    color:var(--ink);
   }
   .results-note{ margin-top:1.6rem; font-size:0.82rem; color:var(--ink-soft); font-weight:300; }
 
@@ -505,10 +534,7 @@
 </header>
 
 <section class="hero">
-  <div class="hero-media">
-    <img src="img/syringes-profile.jpg" alt="Dra. Adriely Anute em perfil, aplicando técnica de harmonização facial">
-  </div>
-  <div class="wrap">
+  <div class="hero-text">
     <div class="eyebrow on-dark">Harmonização Facial · Implantodontia · Facetas</div>
     <div class="gold-rule"></div>
     <h1>Precisão que devolve a própria essência.</h1>
@@ -518,8 +544,13 @@
       <a href="#contato" class="btn-gold">Agendar avaliação</a>
       <a href="#especialidades" class="btn-ghost">Especialidades</a>
     </div>
+    <div class="scroll-mark"><span class="line"></span>Role para conhecer</div>
   </div>
-  <div class="scroll-mark"><span class="line"></span>Role para conhecer</div>
+  <div class="hero-media">
+    <span class="frame-mark tl" aria-hidden="true"></span>
+    <span class="frame-mark br" aria-hidden="true"></span>
+    <img src="img/syringes-profile.jpg" alt="Dra. Adriely Anute em perfil, aplicando técnica de harmonização facial">
+  </div>
 </section>
 
 <section class="about" id="sobre">
@@ -588,12 +619,19 @@
       <p>Antes e depois reais, sempre com autorização dos pacientes.</p>
     </div>
     <div class="gallery reveal">
-      <div class="gallery-item"><span>antes / depois 01</span></div>
-      <div class="gallery-item"><span>antes / depois 02</span></div>
-      <div class="gallery-item"><span>antes / depois 03</span></div>
-      <div class="gallery-item"><span>antes / depois 04</span></div>
+      <div class="gallery-item has-photo">
+        <img src="img/resultados/botox-testa-01.jpg" alt="Antes e depois de aplicação de toxina botulínica na testa">
+        <span>antes / depois — botox</span>
+      </div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-01.jpg" alt="Antes e depois de rinomodelação, perfil masculino"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-02.jpg" alt="Antes e depois de rinomodelação, perfil"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-03.jpg" alt="Antes e depois de rinomodelação, perfil"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-04.jpg" alt="Antes e depois de rinomodelação, perfil"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/rino-05.jpg" alt="Antes e depois de rinomodelação, perfil"><span>antes / depois — rinomodelação</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/facetas-01.jpg" alt="Antes e depois de facetas dentárias"><span>antes / depois — facetas</span></div>
+      <div class="gallery-item has-photo"><img src="img/resultados/facetas-02.jpg" alt="Antes e depois de facetas dentárias, sorriso"><span>antes / depois — facetas</span></div>
     </div>
-    <p class="results-note reveal">Espaços reservados para fotos reais de pacientes — substituir pelos casos aprovados para divulgação.</p>
+    <p class="results-note reveal">Fotos reais de pacientes, sempre com autorização para divulgação.</p>
   </div>
 </section>
 
@@ -613,7 +651,7 @@
     <h2>Vamos conversar sobre o seu rosto.</h2>
     <p>Agende uma avaliação e entenda, com calma, o que faz sentido para você — sem compromisso e sem pressa.</p>
     <div class="hero-ctas">
-      <a href="https://wa.me/5583900000000" class="btn-gold">Agendar pelo WhatsApp</a>
+      <a href="https://wa.me/5583986821511" class="btn-gold">Agendar pelo WhatsApp</a>
       <a href="https://instagram.com/draadrielyanute" class="btn-ghost">@draadrielyanute</a>
     </div>
 
@@ -667,7 +705,7 @@
       </div>
       <div class="footer-col">
         <h4>Contato</h4>
-        <a href="https://wa.me/5583900000000">WhatsApp</a>
+        <a href="https://wa.me/5583986821511">WhatsApp</a>
         <a href="https://instagram.com/draadrielyanute">Instagram</a>
       </div>
     </div>
