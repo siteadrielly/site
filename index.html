@@ -362,6 +362,85 @@
   .banner h2{ color:var(--ivory); font-size:clamp(1.9rem,3.4vw,2.7rem); margin-top:1rem; }
   .banner p{ color:rgba(242,236,225,0.8); margin-top:1.2rem; font-weight:300; max-width:52ch; margin-left:auto; margin-right:auto; }
 
+  /* ---------- CLINICA / LOCALIZACAO (ivory) ---------- */
+  .clinica{ background:var(--ivory); }
+  .clinic-gallery{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:170px;
+    gap:0.6rem;
+    margin-top:3rem;
+  }
+  .clinic-gallery .cg-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:2px;
+  }
+  .clinic-gallery .cg-item img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 0.5s ease;
+  }
+  .clinic-gallery .cg-item:hover img{ transform:scale(1.06); }
+  .clinic-gallery .cg-item.tall{ grid-row:span 2; }
+  .clinic-gallery .cg-item.wide{ grid-column:span 2; }
+
+  @media (max-width:900px){
+    .clinic-gallery{ grid-template-columns:repeat(2,1fr); grid-auto-rows:130px; }
+    .clinic-gallery .cg-item.wide{ grid-column:span 2; }
+  }
+
+  .location-block{
+    margin-top:4.5rem;
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:4vw;
+    align-items:start;
+  }
+  .location-card{
+    border:1px solid var(--line-light);
+    padding:2.4rem;
+  }
+  .location-card h3{ font-size:1.5rem; margin-bottom:1rem; }
+  .location-card p{ color:var(--ink-soft); font-weight:300; margin:0 0 0.3rem; }
+  .location-card .addr-line{ color:var(--ink); font-weight:400; }
+  .location-refs{ list-style:none; padding:0; margin:1.4rem 0 0; }
+  .location-refs li{
+    display:flex; gap:0.7rem;
+    padding:0.6rem 0;
+    border-top:1px solid var(--line-light);
+    font-size:0.92rem; color:var(--ink-soft); font-weight:300;
+  }
+  .location-refs li:first-child{ border-top:none; }
+  .location-refs li .dot{ color:var(--gold); flex-shrink:0; }
+  .location-card .btn-map{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    margin-top:1.8rem;
+    padding:0.85rem 1.7rem;
+    background:var(--ink);
+    color:var(--ivory);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .location-card .btn-map:hover{ background:var(--gold-dim); color:var(--black); }
+  .map-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/3.4;
+    border:1px solid var(--line-light);
+    overflow:hidden;
+  }
+  .map-frame iframe{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    border:0;
+    filter:grayscale(0.25) contrast(1.02);
+  }
+
+  @media (max-width:900px){
+    .location-block{ grid-template-columns:1fr; }
+  }
+
   /* ---------- RESULTS (ivory) ---------- */
   .results{ background:var(--ivory); }
   .gallery{
@@ -523,6 +602,7 @@
     <nav class="nav-links" id="navLinks">
       <a href="#sobre">Sobre</a>
       <a href="#especialidades">Especialidades</a>
+      <a href="#clinica">Estrutura</a>
       <a href="#resultados">Resultados</a>
       <a href="#depoimentos">Depoimentos</a>
       <a href="#contato" class="nav-cta">Agendar</a>
@@ -611,6 +691,48 @@
   </div>
 </section>
 
+<section class="clinica" id="clinica">
+  <div class="wrap">
+    <div class="section-head on-light reveal">
+      <div class="eyebrow on-light">Estrutura</div>
+      <h2>Um espaço pensado para o seu conforto</h2>
+      <p>Consultório do Grupo Athos Odontologia, à beira-mar da Praia do Bessa, em João Pessoa.</p>
+    </div>
+
+    <div class="clinic-gallery reveal">
+      <div class="cg-item tall"><img src="img/clinica/recepcao-01.jpg" alt="Recepção da clínica Athos Odontologia"></div>
+      <div class="cg-item wide"><img src="img/clinica/recepcao-02.jpg" alt="Recepção com parede de mármore e logo Athos"></div>
+      <div class="cg-item"><img src="img/clinica/sala-espera-01.jpg" alt="Sala de espera da clínica"></div>
+      <div class="cg-item tall"><img src="img/clinica/logo-parede.jpg" alt="Detalhe do logo Athos Odontologia na parede"></div>
+      <div class="cg-item wide"><img src="img/clinica/workstation-02.jpg" alt="Área de recepção com vista para a orla do Bessa"></div>
+      <div class="cg-item"><img src="img/clinica/sala-espera-02.jpg" alt="Sofá e espelho da sala de espera"></div>
+    </div>
+
+    <div class="location-block reveal">
+      <div class="location-card">
+        <div class="eyebrow on-light">Onde estamos</div>
+        <h3>Grupo Athos Odontologia</h3>
+        <p class="addr-line">Av. Arthur Monteiro de Paiva, 721</p>
+        <p class="addr-line">Bessa, João Pessoa – PB, 58035-010</p>
+        <ul class="location-refs">
+          <li><span class="dot">—</span> Beira Mar da Praia do Bessa</li>
+          <li><span class="dot">—</span> Sala 01, Edf. Escuna (térreo)</li>
+          <li><span class="dot">—</span> Se vier de Uber, coloque o destino como "Bar Bessa Brassil"</li>
+        </ul>
+        <a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=Av.+Arthur+Monteiro+de+Paiva,+721,+Bessa,+Jo%C3%A3o+Pessoa+-+PB,+58035-010" target="_blank" rel="noopener">Abrir no Google Maps</a>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=Av.+Arthur+Monteiro+de+Paiva,+721,+Bessa,+Jo%C3%A3o+Pessoa+-+PB,+58035-010&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa de localização — Grupo Athos Odontologia">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="results" id="resultados">
   <div class="wrap">
     <div class="section-head on-light reveal">
@@ -638,9 +760,8 @@
 <section class="testimonial" id="depoimentos">
   <div class="wrap reveal">
     <div class="eyebrow on-dark" style="justify-content:center; display:flex;">Depoimento</div>
-    <blockquote style="margin-top:1.2rem;">"Fui buscando um ajuste. Saí entendendo que o rosto sempre esteve certo — só faltava atenção no lugar certo."</blockquote>
-    <cite>Paciente</cite>
-    <p class="placeholder-note">Texto ilustrativo — substituir por depoimento real autorizado por paciente.</p>
+    <blockquote style="margin-top:1.2rem;">"A Dra. Adria me devolveu meu sorriso e minha autoestima. Deus abençoe sempre — pode contar comigo, vou sempre te indicar."</blockquote>
+    <cite>Depoimento de paciente</cite>
   </div>
 </section>
 
@@ -700,6 +821,7 @@
         <h4>Navegação</h4>
         <a href="#sobre">Sobre</a>
         <a href="#especialidades">Especialidades</a>
+        <a href="#clinica">Estrutura</a>
         <a href="#resultados">Resultados</a>
         <a href="#depoimentos">Depoimentos</a>
       </div>
