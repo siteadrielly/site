@@ -470,39 +470,31 @@
   .gallery{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:var(--line-light);
+    gap:2rem 1.4rem;
     margin-top:3.5rem;
-    border:1px solid var(--line-light);
   }
-  .gallery-item{
+  .gallery-item{ margin:0; }
+  .gallery-photo{
     aspect-ratio:1/1;
     background:var(--ivory-deep);
-    position:relative;
-    display:flex; align-items:flex-end; justify-content:center;
-    padding-bottom:1.2rem;
     overflow:hidden;
+    border:1px solid var(--line-light);
   }
-  .gallery-item img{
-    position:absolute; inset:0;
+  .gallery-photo img{
     width:100%; height:100%;
     object-fit:cover;
     object-position:top center;
+    display:block;
   }
-  .gallery-item span{
+  .gallery-item figcaption{
+    margin-top:0.7rem;
     font-size:0.66rem; letter-spacing:0.12em; text-transform:uppercase;
     color:var(--ink-soft);
-    position:relative;
-    z-index:2;
-  }
-  .gallery-item.has-photo span{
-    background:rgba(242,236,225,0.9);
-    padding:0.4rem 0.9rem;
-    color:var(--ink);
+    text-align:center;
   }
   .results-note{ margin-top:1.6rem; font-size:0.82rem; color:var(--ink-soft); font-weight:300; }
 
-  @media (max-width:900px){ .gallery{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:900px){ .gallery{ grid-template-columns:1fr 1fr; gap:1.6rem 1rem; } }
 
   /* ---------- TESTIMONIAL (dark) ---------- */
   .testimonial{ background:var(--black); color:var(--ivory); text-align:center; }
@@ -849,71 +841,6 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
-</script>
-
-<!--
-  ======================================================================
-  CONFIGURAÇÃO DO SUPABASE — leia antes de publicar
-  ======================================================================
-  1. Crie a tabela "leads" no Supabase com as colunas:
-     id (uuid, default gen_random_uuid()), created_at (timestamptz, default now()),
-     nome (text), whatsapp (text), procedimento (text), mensagem (text), origem (text)
-  2. Ative Row Level Security e crie uma policy de INSERT liberada para "anon"
-     (sem policy de SELECT/UPDATE/DELETE pública).
-  3. Troque SUPABASE_URL e SUPABASE_ANON_KEY abaixo pelos valores reais
-     (Project Settings > API no painel do Supabase).
-  ======================================================================
--->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script>
-  const SUPABASE_URL = "https://vjypwqgijryybflmqamu.supabase.co";
-  const SUPABASE_ANON_KEY = "sb_publishable_ZHsIdjFwcGZRCaUubt6dew_31_TCueA";
-
-  const supabaseClient = (SUPABASE_URL.startsWith("http"))
-    ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    : null;
-
-  const leadForm = document.getElementById('leadForm');
-  const leadStatus = document.getElementById('leadFormStatus');
-  const leadBtn = document.getElementById('leadSubmitBtn');
-
-  leadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    if (!supabaseClient){
-      leadStatus.textContent = "Formulário ainda não configurado — defina a SUPABASE_URL e a ANON_KEY no código.";
-      leadStatus.className = "form-status error";
-      return;
-    }
-
-    const payload = {
-      nome: document.getElementById('nome').value.trim(),
-      whatsapp: document.getElementById('whatsapp').value.trim(),
-      procedimento: document.getElementById('procedimento').value,
-      mensagem: document.getElementById('mensagem').value.trim(),
-      origem: "site-adriely"
-    };
-
-    leadBtn.disabled = true;
-    leadBtn.textContent = "Enviando...";
-    leadStatus.textContent = "";
-    leadStatus.className = "form-status";
-
-    const { error } = await supabaseClient.from('leads').insert([payload]);
-
-    if (error){
-      leadStatus.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
-      leadStatus.className = "form-status error";
-      leadBtn.disabled = false;
-      leadBtn.textContent = "Enviar e ser contatada";
-    } else {
-      leadStatus.textContent = "Recebido! Em breve entramos em contato pelo WhatsApp.";
-      leadStatus.className = "form-status success";
-      leadForm.reset();
-      leadBtn.disabled = false;
-      leadBtn.textContent = "Enviar e ser contatada";
-    }
-  });
 </script>
 
 <script async src="https://www.instagram.com/embed.js"></script>
